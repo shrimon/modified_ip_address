@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <!-- <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png"> -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+  <title>Shrimon S Sinha</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>IP Address Tracker</h1>
+
+    <form novalidate>
+      <div class="search-bar">
+        <input type="text" id="search"
+                          class="search-bar__input"
+                          name="search"
+                          placeholder="Search for any IP address or domain"
+                          autocomplete="off"
+                          aria-label="Search for any IP address or domain">
+        <button type="submit" class="search-bar__button">
+          <img alt="Search by IP Address or Domain" src="images/icon-arrow.svg" />
+        </button>
+      </div>
+    </form>
+
+  </header>
+
+
+  <main class="results">
+    <ul class="result-card">
+      <li class="result-card__item">
+        <h2 class="result-card__title">IP Address</h2>
+        <p class="result-card__value" id="ipAddress">-</p>
+      </li>
+      <li class="result-card__item">
+        <h2 class="result-card__title">Location</h2>
+        <p class="result-card__value" id="location">-</p>
+      </li>
+      <li class="result-card__item">
+        <h2 class="result-card__title">Timezone</h2>
+        <p class="result-card__value" id="timezone">-</p>
+      </li>
+      <li class="result-card__item">
+        <h2 class="result-card__title">ISP</h2>
+        <!-- UTC add offset value dynamically using the API -->
+        <p class="result-card__value" id="isp">-</p>
+      </li>
+    </ul>
+  </main>
+
+
+  <div id="mapid"></div>
+
+
+  <script src="js/script.js"></script>
+</script>
+
+</body>
+</html>
