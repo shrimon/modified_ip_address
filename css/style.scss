@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+
+// Primary colors
+// $very-dark-gray: hsl(0, 0, 17%);
+$dark-gray: hsl(0, 0, 59%);
+
+
+/*==========
+DEFAULTS
+=========*/
+
+* {
+    // box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 18px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+}
+
+
+/*==========
+COMPONENTS
+=========*/
+
+.search-bar {
+    display: flex;
+    margin: 1em 2em;
+
+    &__input,
+    &__button {
+        // border: 1px solid $very-dark-gray;
+        // border-radius: 10px;
+        padding: 1.2em 1.7em;
+    }
+
+    &__input {
+        flex-grow: 1;
+        // border-top-right-radius: 1;
+        // border-bottom-right-radius: 1;
+        font-size: 0.8rem;
+        color: $very-dark-gray;
+        &::placeholder {
+            color: $dark-gray;
+        }
+    }
+
+    &__button {
+        background-color: #000;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $very-dark-gray;
+        }
+    }
+}
+
+$div-margin: 1.5em;
+.result-card {
+    // border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+        text-align: center;
+        margin: $div-margin 0 0; // margin-bottom missing for all divs but needed for last child
+        padding: 0 $div-margin;
+
+        &:last-child {
+            margin-bottom: $div-margin; // last child here
+        }
+    }
+
+    &__title {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        color: $dark-gray;
+        text-transform: uppercase;
+    }
+
+    &__value {
+        padding-top: 10px;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+}
+
+
+
+/*==========
+LAYOUT
+=========*/
+
+header {
+    background-color: blue;
+
+    min-height: 200px;
+    height: 25vh;
+
+    h1 {
+        padding-top: 1em;
+    }
+}
+
+
+main.results {
+    position: relative;
+
+    // Center ul list
+    display: flex;
+    justify-content: center;
+
+    ul {
+        z-index: 666;
+        position: absolute;
+        top: -65px;
+        list-style: none;
+        background-color: #fff;
+
+        width: 80%;
+    }
+}
+
+
+#mapid {
+    height: 75vh;
+}
+
+
+footer {
+    position: fixed;
+    padding: 0.5em;
+    background-color: #fff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    bottom: 0;
+    left: 0;
+    z-index: 666;
+}
+
+
+
+
+/*==========
+DESKTOP
+=========*/
+
+@media only screen and (min-width: 900px) {
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+
+        .search-bar {
+            width: 40%;
+
+            &__input {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .result-card {
+        // Spread li items
+        flex-direction: row;
+        justify-content: space-between;
+        height: 10px;
+
+        &__item {
+            width: 25%;
+            text-align: left;
+            border-right: 1px solid $dark-gray;
+            margin-bottom: $div-margin;
+
+            &:last-child {
+                border-right: 0;
+            }
+        }
+
+        &__title {
+            font-size: 0.7rem;
+        }
+
+        &__value {
+            font-size: 1.4rem;
+        }
+    }
+
+
+    header {
+        min-height: 260px;
+    }
+
+    main.results ul {
+        // top: -65px;
+    }
+
+}
